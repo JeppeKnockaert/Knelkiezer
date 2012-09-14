@@ -21,6 +21,12 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
+	width:100%;
+	height:100%;
+	background-image:url('assets/bg.jpg');
+	background-color:#20447c;
+	background-repeat:no-repeat;
+	background-position:center center;
 }
 
 /*
@@ -37,6 +43,20 @@ body {
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
+}
+
+@font-face {
+    font-family: 'prodin';
+    src: url('assets/_Black.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'prodinm';
+    src: url('assets/_medium.otf');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /*
@@ -94,10 +114,57 @@ textarea {
    ========================================================================== */
 
 
+#container{
+	width:90%;
+	margin:0 auto;
+	max-width:650px;
+}
 
+#home{
+	position:absolute;
+	top:200px;
+	text-align:center;
+}
 
+h1{
+	font-family:'prodin';
+	text-transform:uppercase;
+	font-size:45px;
+	text-shadow: 2px 2px 5px #242424;
+    filter: dropshadow(color=#242424, offx=1, offy=1);
+	color:#FFF;
+}
 
+.underline{
+	padding-bottom:20px;
+	border-bottom:1px dashed rgba(255,255,255,0.5);
+}
 
+#home p{
+	color:#FFF;
+	font-family:'prodinm';
+	font-size:17px;
+	text-shadow: 2px 2px 5px #242424;
+    filter: dropshadow(color=#242424, offx=1, offy=1);
+	padding-bottom:20px;
+}
+
+#login{
+	width:271px;
+	height:41px;
+	background-image:url(assets/login.jpg);
+	background-position:0 0;
+	margin:0 auto;
+	cursor:pointer;
+}
+
+#login:hover{
+	width:271px;
+	height:41px;
+	background-image:url(assets/login.jpg);
+	background-position:0 41px;
+	margin:0 auto;
+}
 
 
 
@@ -210,89 +277,3 @@ textarea {
     *zoom: 1;
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   Theses examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min-resolution: 144dpi) {
-    /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
-
-@media print {
-    * {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster: h5bp.com/s */
-        box-shadow:none !important;
-        text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
-    /*
-     * Don't show links for images, or javascript/internal links
-     */
-
-    .ir a:after,
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-        content: "";
-    }
-
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    thead {
-        display: table-header-group; /* h5bp.com/t */
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    @page {
-        margin: 0.5cm;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
-}
