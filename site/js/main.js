@@ -9,7 +9,7 @@ function sendData(trueorfalse,number){
 	if(trueorfalse == 'yes'){
 		$(".antwoordHidden").val("1");
 	}
-	else if(trueorfalse == 'no'){
+	else{
 		$(".antwoordHidden").val("0");
 	}
 	$("#_"+number).css("z-index", ""+teller);
