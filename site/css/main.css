@@ -169,6 +169,7 @@ h1{
 
 #container_questions{
 	position:relative;
+	min-height:500px;
 }
 
 .question{
