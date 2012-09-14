@@ -21,8 +21,13 @@ function sendData(trueorfalse,number){
 				url: "postvraag.php",
 				data: $("#f_"+number).serializeArray(),
 				success: function(data){
-					$("#_"+number2).show();
-					$("#_"+number).fadeOut(300);
+					if(number != 7){
+						$("#_"+number2).show();
+						$("#_"+number).fadeOut(300);
+					}
+					else{
+						window.location.href = 'result.php';
+					}
 					
 				},
 				error: function(){

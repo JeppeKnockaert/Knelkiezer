@@ -200,6 +200,7 @@ h1{
 	height:53px;
 	background-image:url(assets/ja.png);
 	margin-left:55px;
+	z-index:555;
 }
 
 .nee{
@@ -208,6 +209,7 @@ h1{
 	height:53px;
 	background-image:url(assets/nee.png);
 	margin-right:55px;
+	z-index:555;
 }
 
 
