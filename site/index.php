@@ -4,8 +4,7 @@
 		$geocode = getGeoCoding($user_profile['location']['name']);
 		$_SESSION['mylocationlat'] = $geocode['lat'];
 		$_SESSION['mylocationlong'] = $geocode['lng'];
-		var_dump($_SESSION['mylocationlong']);
-		//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=vragen.php">';
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=vragen.php">';
        	exit;	
 	}
 	else{

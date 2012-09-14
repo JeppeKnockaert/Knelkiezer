@@ -24,6 +24,8 @@
 			.bindPopup("EURES AARSCHOT").openPopup();
 		<?php echo "L.marker([50.9754,5.041652]).addTo(map)"; ?>
 			.bindPopup("VDAB DIEST").openPopup();
+		<?php echo "L.marker([51.063584, 3.734345]).addTo(map)"; ?>
+			.bindPopup("VDAB STAPELPLEIN").openPopup();
 		<?php echo "L.marker([".$_SESSION['mylocationlat'].", ".$_SESSION['mylocationlong']."]).addTo(map)"; ?>
 			.bindPopup("Woonplaats").openPopup();
 	<?php echo '</script>' ?>
