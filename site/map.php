@@ -28,8 +28,9 @@
 	<body>
 	<div id="container">
             <div id="home">
-	<div id="map" style="width: 600px; height: 400px"></div>
-	</div></div>
+				<div id="map" style="width: 600px; height: 400px"></div>
+			</div>
+	</div>
 	<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
 	<?php echo '<script>' ?>
 		<?php echo "var map = L.map('map').setView([50.850339, 4.351709700000015], 7);" ?>
