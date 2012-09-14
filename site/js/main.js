@@ -1,5 +1,10 @@
 var teller = 4444;
 
+$(document).ready(function(){
+	$(".question").hide();
+	$("_1").show();
+});
+
 function sendData(trueorfalse,number){
 	if(trueorfalse == 'yes'){
 		$("#antwoordHidden").val("1");
