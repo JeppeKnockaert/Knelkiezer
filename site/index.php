@@ -12,7 +12,7 @@
 								'display' => 'touch',
                             	'scope' => 'publish_stream,user_location'
                             )
-                    ); 
+                    );
 ?>">Login met facebook!</a>
 <?php } ?>
 <?php include_once('footer.tpl'); ?>
