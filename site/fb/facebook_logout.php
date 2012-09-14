@@ -1,7 +1,7 @@
 <?php
-	require 'fb/facebook.php';
-	require 'fb/config.php';
+	require 'facebook.php';
+	require 'config.php';
 	
 	$facebook->destroySession();
-	header('Location: index.php');
+	header('Location: ../index.php');
 ?>	
