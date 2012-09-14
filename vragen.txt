@@ -1,0 +1,18 @@
+sectoren:
+-ict
+-hout en bouw
+-verpleegkunde
+-Metaal, elektriciteit en autotechniek
+-bestuurder zware vrachtwagen
+
+
+
+Vragen:
+-...
+
+
+db:
+pieterreuse.be
+db: knelkiezer
+user: pieter
+pass: moeilijkwachtwoord
