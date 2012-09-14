@@ -7,10 +7,10 @@ $(document).ready(function(){
 
 function sendData(trueorfalse,number){
 	if(trueorfalse == 'yes'){
-		$("#antwoordHidden").val("1");
+		$(".antwoordHidden").val("1");
 	}
 	else if(trueorfalse == 'false'){
-		$("#antwoordHidden").val("0");
+		$(".antwoordHidden").val("0");
 	}
 	$("#_"+number).css("z-index", ""+teller);
 	teller++;
