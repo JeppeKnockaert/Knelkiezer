@@ -21,18 +21,18 @@
 	
 	for( $counter = 1; $counter <= $count; $counter++){
 	
-	echo "\n<div id=_".$counter." class='question'>Vraag ".$counter.":<br/>";
-	echo "<form action='postvraag.php'>";
-	$query="SELECT `vraag` FROM `vragen` WHERE `id`=".$counter.";";
-	$result = mysql_query($query) or die ("fout: " . mysql_error());
-	$result = mysql_result($result,0);
-	echo $result;
-	
-	echo "<br/>\n<input type='radio' name='antwoord' value='1'/>Like<br/>";
-	echo "<input type='radio' name='antwoord' value='0'/>Dislike";
-	echo "<input type='hidden' name='vraag' value='".$counter."' />";
-	echo "</form>";
-	echo "</div>\n";
+		echo "\n<div id=_".$counter." class='question'>Vraag ".$counter.":<br/>";
+		echo "<form action='postvraag.php'>";
+		$query="SELECT `vraag` FROM `vragen` WHERE `id`=".$counter.";";
+		$result = mysql_query($query) or die ("fout: " . mysql_error());
+		$result = mysql_result($result,0);
+		echo $result;
+		
+		echo "<br/>\n<input type='radio' name='antwoord' value='1'/>Like<br/>";
+		echo "<input type='radio' name='antwoord' value='0'/>Dislike";
+		echo "<input type='hidden' name='vraag' value='".$counter."' />";
+		echo "</form>";
+		echo "</div>\n";
 	
 	}
 	
