@@ -136,8 +136,9 @@ h1{
 }
 
 .underline{
-	padding-bottom:20px;
+	padding-bottom:30px;
 	border-bottom:1px dashed rgba(255,255,255,0.5);
+	text-align:center;
 }
 
 #home p{
@@ -166,6 +167,47 @@ h1{
 	margin:0 auto;
 }
 
+#container_questions{
+	position:relative;
+}
+
+.question{
+	height:500px;
+	position:absolute;
+	top:200px;
+	bottom:0;
+	left:0;
+	right:0;
+}
+
+#_1{
+	display:block;
+	z-index:3000;
+}
+
+#_2, #_3, #_4, #_5, #_6, #_7{
+	display:none;
+}
+
+#antwoord{
+	padding-top:30px;
+}
+
+.ja{
+	float:left;
+	width:177px;
+	height:53px;
+	background-image:url(assets/ja.png);
+	margin-left:55px;
+}
+
+.nee{
+	float:right;
+	width:177px;
+	height:53px;
+	background-image:url(assets/nee.png);
+	margin-right:55px;
+}
 
 
 

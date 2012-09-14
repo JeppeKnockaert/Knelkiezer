@@ -1,1 +1,29 @@
+var teller = 4444;
+
+function sendData(trueorfalse,number){
+	if(trueorfalse == 'yes'){
+		$("#antwoordHidden").val("1");
+	}
+	else if(trueorfalse = 'false'){
+		$("#antwoordHidden").val("0");
+	}
+	$("#_"+number).css("z-index", ""+teller);
+	teller++;
+	var number2 = number +1;
+	
+	$.ajax({
+				type: "POST",
+				url: "postvraag.php",
+				data: $("#f_"+number).serializeArray(),
+				success: function(data){
+					$("#_"+number2).show();
+					$("#_"+number).fadeOut(300);
+					
+				},
+				error: function(){
+					window.alert("Er is een probleem opgetreden.");
+				}
+			});
+	
+}
 
