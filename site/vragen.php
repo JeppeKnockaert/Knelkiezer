@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.1.min.js"></script>
     </head>
+    <?php include_once('header.tpl'); ?>
     <?php 
 		if (! $user){
 			//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';
@@ -36,35 +37,50 @@
         <!-- Add your site or application content here -->
         <div id="container">
         	<div id="container_questions">
-                <div id="_1" class="question">
-                    <h1 class="underline">Ik kan niet stil zitten</h1>
-                    <form id="f_1">
-                        <input type="hidden" name="vraag" value="1" />
-                        <input id="antwoordHidden" type="hidden" name="antwoord" value="1" />
-                        <div id="antwoord" class="clearfix">
-                            <div class="ja" onClick="sendData('yes', 1);">
+               
+		
+        <?php
+			
+			//haal aantal vragen op
+			$con = mysql_connect("localhost","pieter","moeilijkwachtwoord");
+			if (!$con)	die('DBfout, fout: ' . mysql_error());
+			mysql_select_db("knelkiezer",$con);
+		
+			$query="SELECT COUNT(*) FROM `vragen`";
+		
+			$result = mysql_query($query) or die ("fout: " . mysql_error());
+			$count = mysql_result($result,0);
+			
+			for( $counter = 1; $counter <= $count; $counter++){
+			
+				echo "<div id=_".$counter." class='question'>";
+				$query="SELECT `vraag` FROM `vragen` WHERE `id`=".$counter.";";
+				$result = mysql_query($query) or die ("fout: " . mysql_error());
+				$result = mysql_result($result,0);
+				echo '<h1 class="underline">' . $result . '</h1>';
+				echo "<form id='f_" . $counter . "' action=''>";
+			?>
+            <div id="antwoord" class="clearfix">
+                            <div class="ja" onClick="sendData('yes', <?php echo $counter; ?>);">
                             </div>
-                            <div class="nee" onClick="sendData('no', 1);">
+                            <div class="nee" onClick="sendData('no',  <?php echo $counter; ?>);">
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div id="_2" class="question">
-                     <h1 class="underline">Test</h1>
-                    <form id="f_2">
-                        <input type="hidden" name="vraag" value="2" />
-                        <input id="antwoordHidden" type="hidden" name="antwoord" value="1" />
-                        <div id="antwoord" class="clearfix">
-                            <div class="ja" onClick="sendData('yes', 1);">
-                            </div>
-                            <div class="nee" onClick="sendData('no', 1);">
-                            </div>
-                        </div>
-                    </form>
-                </div>
+			</form>
             </div>
-        </div>
 
+			<?php
+			}
+			
+			mysql_close($con);
+		}
+		?>
+        
+        </div>
+        </div>
+		
+		
+        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
