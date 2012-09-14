@@ -59,6 +59,8 @@
 				$result = mysql_result($result,0);
 				echo '<h1 class="underline">' . $result . '</h1>';
 				echo "<form id='f_" . $counter . "' action=''>";
+				echo '<input type="hidden" name="vraag" value="' . $counter .  '" />';
+                echo '<input id="antwoordHidden" type="hidden" name="antwoord" value="1" />';
 			?>
             <div id="antwoord" class="clearfix">
                             <div class="ja" onClick="sendData('yes', <?php echo $counter; ?>);">
