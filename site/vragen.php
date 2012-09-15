@@ -58,7 +58,7 @@
 				$result = mysql_query($query) or die ("fout: " . mysql_error());
 				$result = mysql_result($result,0);
 				echo '<h1 class="underline">' . $result . '</h1>';
-				echo "<form id='f_" . $counter . "' action=''>";
+				echo "<form id='f_" . $counter . "'  method='post' action=''>";
 				echo '<input type="hidden" name="vraag" value="' . $counter .  '" />';
                 echo '<input class="antwoordHidden" type="hidden" name="antwoord" value="1" />';
 			?>
