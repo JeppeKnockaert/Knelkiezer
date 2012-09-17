@@ -42,7 +42,7 @@
         <?php
 			
 			//haal aantal vragen op
-			$con = mysql_connect("localhost","pieter","moeilijkwachtwoord");
+			$con = mysql_connect($db['hostname'],$db['login'],$db['pass']);
 			if (!$con)	die('DBfout, fout: ' . mysql_error());
 			mysql_select_db("knelkiezer",$con);
 		

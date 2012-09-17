@@ -1,6 +1,7 @@
 <?php
 	require_once( 'fb/facebook.php' );
     require_once( 'fb/config.php' );
+    require_once( 'config.php' );
 	try{
 	    $user = $facebook->getUser();
 	}
