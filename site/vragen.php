@@ -21,7 +21,6 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.1.min.js"></script>
     </head>
-   
     <?php 
 		if (! $user){
 			//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';
@@ -51,7 +50,9 @@
 		
 			$result = mysql_query($query) or die ("fout: " . mysql_error());
 			$count = mysql_result($result,0);
-			
+			$url = preg_match('/(.*)\/.*/',$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"],$matches);
+			$url = $matches[1];
+			$url = preg_replace('/^localhost/','http://localhost',$url);
 			for( $counter = 1; $counter <= $count; $counter++){
 			
 				echo "<div id=_".$counter." class='question'>";
@@ -64,9 +65,9 @@
                 echo '<input class="antwoordHidden" type="hidden" name="antwoord" value="1" />';
 			?>
             <div id="antwoord" class="clearfix">
-                            <div class="ja" onClick="sendData('yes', <?php echo $counter; ?>);">
+                            <div class="ja" onClick="sendData('yes', <?php echo $counter; ?>, '<?php echo $url; ?>');">
                             </div>
-                            <div class="nee" onClick="sendData('no',  <?php echo $counter; ?>);">
+                            <div class="nee" onClick="sendData('no',  <?php echo $counter; ?>, '<?php echo $url; ?>');">
                             </div>
                         </div>
 			</form>
