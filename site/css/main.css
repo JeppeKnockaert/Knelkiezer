@@ -126,6 +126,12 @@ textarea {
 	text-align:center;
 }
 
+#result{
+	margin:0 auto;
+	text-align:center;
+	padding-top:200px;
+}
+
 h1{
 	font-family:'prodin';
 	text-transform:uppercase;
@@ -141,13 +147,19 @@ h1{
 	text-align:center;
 }
 
-#home p{
+
+#home p, #result p{
 	color:#FFF;
 	font-family:'prodinm';
 	font-size:17px;
 	text-shadow: 2px 2px 5px #242424;
     filter: dropshadow(color=#242424, offx=1, offy=1);
 	padding-bottom:20px;
+}
+
+#result p{
+	font-size:22px;
+	padding-bottom:5px;
 }
 
 #login{
@@ -165,6 +177,20 @@ h1{
 	background-image:url(assets/login.jpg);
 	background-position:0 41px;
 	margin:0 auto;
+}
+
+#share{
+	display:block;
+	width:364px;
+	height:63px;
+	background-image:url(assets/share.png);
+	background-position:0 0;
+	margin:0 auto;
+	cursor:pointer;
+}
+
+#share:hover{
+	background-position:0 -63px;
 }
 
 #container_questions{
@@ -213,6 +239,21 @@ h1{
 }
 
 
+@media all and (max-width:500px) { 
+
+#home{
+	top:50px;
+}
+
+#result{
+	padding-top:50px;
+}
+
+.question{
+	top:50px;
+}
+
+}
 
 
 
