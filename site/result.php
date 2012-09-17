@@ -1,7 +1,7 @@
 <?php include_once('header.tpl'); ?>
 
 <?php
-
+	require_once('curl.php');
 	//haal aantal vragen op
 	$con = mysql_connect("localhost","pieter","moeilijkwachtwoord");
 	if (!$con)	die('DBfout, fout: ' . mysql_error());
@@ -44,11 +44,20 @@
 	
 	}
 	
-	$query="SELECT `Naam` FROM `beroepen` WHERE `id`='".$maxid."';";
+	$query="SELECT `Naam`,`beroep` FROM `beroepen` WHERE `id`='".$maxid."';";
 	$result = mysql_query($query) or die ("fout: " . mysql_error());
-	$beroep = mysql_result($result,0);
-	
+	$columns = mysql_fetch_array($result);
+	$beroep = $columns['Naam'];
+	$beroepcat = $columns['beroep'];
 	$_SESSION['fbmessage'] = "Knelkiezer raadde mij een job als ".$beroep." aan!";
+		
+	mysql_close($con);
+	$request_url = "http://data.appsforflanders.be/sql.json?query=" ;
+    $query = "SELECT omschrijving,code FROM vdab.opleidingen WHERE ";
+    $where = "omschrijving LIKE '%".$beroepcat."%' OR omschrijving LIKE '%".ucwords($beroepcat)."%'"; 
+    $fullurl = $request_url.urlencode( $query . $where ) ;
+    // get "opleidingen"
+    $opleidingen = get( $fullurl )->sqlquery;
 ?>
 
 <!--<img src="http://www.pieterreuse.be/tools/knelkiezer/img/<?php //echo $maxid; ?>.jpg"/><br/><br/>-->
@@ -91,7 +100,13 @@
                 </a>
             </div>
         </div>
-
+        
+        U kunt hiervoor volgende opleidingen volgen:<br /><br /> 
+        <?php 
+        	foreach ($opleidingen as $opleiding){
+    			echo ($opleiding->omschrijving)." <a href='map?code=".$opleiding->code."'>Kaart</a><br />";
+    		}
+        ?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
