@@ -1,3 +1,4 @@
+<?php include_once('header.tpl'); ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -20,7 +21,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.1.min.js"></script>
     </head>
-    <?php include_once('header.tpl'); ?>
+   
     <?php 
 		if (! $user){
 			//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';

@@ -17,5 +17,5 @@
 		//Get the profile
         $user_profile = $facebook->api('/me'); 
 	}
-    session_start();
+	session_start();
 ?>
