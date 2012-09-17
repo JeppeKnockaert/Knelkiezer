@@ -20,12 +20,10 @@
 	
 	for( $counter = 1; $counter < $beroepen -1; $counter++){
 		
-		//$_SESSION['result'][$counter]=0;
 		$score=0;
-		for( $counter2 = 1; $counter2 < $count; $counter2++){
-			//$_SESSION['result'][$counter] += $_SESSION['antwoord'][$counter2];
+		for( $counter2 = 1; $counter2 < $count -1; $counter2++){
 			
-			$antwoord = $_SESSION['antwoord'][$counter2];
+			$antwoord = $_SESSION['antwoord'][""+$counter2];
 			$antwoord = 2*$antwoord-1;
 			
 			$query="SELECT `beroep` FROM `beroepen` WHERE `id`='".$counter."';";
@@ -37,7 +35,7 @@
 			$coeff = mysql_result($result,0);
 			
 			$score += $antwoord * $coeff;
-			//echo $counter2.": ".$_SESSION['antwoord'][$counter2];
+		
 		}
 		if($score > $maxscore){
 			$maxscore = $score;
@@ -45,10 +43,6 @@
 		}
 	
 	}
-
-	/*foreach($_SESSION['result'] as $key=>$value){ 
-		echo $key." : ".$value; 
-	}*/
 	
 	$query="SELECT `Naam` FROM `beroepen` WHERE `id`='".$maxid."';";
 	$result = mysql_query($query) or die ("fout: " . mysql_error());
