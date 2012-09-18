@@ -54,7 +54,7 @@
 	mysql_close($con);
 	$request_url = "http://data.appsforflanders.be/sql.json?query=" ;
     $query = "SELECT omschrijving,code FROM vdab.opleidingen WHERE ";
-    $where = "omschrijving LIKE '%".$beroepcat."%' OR omschrijving LIKE '%".ucwords($beroepcat)."%'"; 
+    $where = "sectie_omschrijving LIKE '%".strtoupper($beroepcat)."%'"; 
     $fullurl = $request_url.urlencode( $query . $where ) ;
     // get "opleidingen"
     $opleidingen = get( $fullurl )->sqlquery;
@@ -104,7 +104,7 @@
         U kunt hiervoor volgende opleidingen volgen:<br /><br /> 
         <?php 
         	foreach ($opleidingen as $opleiding){
-    			echo ($opleiding->omschrijving)." <a href='map?code=".$opleiding->code."'>Kaart</a><br />";
+    			echo ($opleiding->omschrijving)." <a href='map.php?code=".$opleiding->code."'>Kaart</a><br />";
     		}
         ?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
