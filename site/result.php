@@ -3,7 +3,7 @@
 <?php
 	require_once('curl.php');
 	//haal aantal vragen op
-	$con = mysql_connect("localhost","pieter","moeilijkwachtwoord");
+	$con = mysql_connect($db['hostname'],$db['login'],$db['pass']);
 	if (!$con)	die('DBfout, fout: ' . mysql_error());
 	mysql_select_db("knelkiezer",$con);
 
@@ -49,7 +49,7 @@
 	$columns = mysql_fetch_array($result);
 	$beroep = $columns['Naam'];
 	$beroepcat = $columns['beroep'];
-	$_SESSION['fbmessage'] = "Knelkiezer raadde mij een job als ".$beroep." aan!";
+	$_SESSION['fbmessage'] = "Knelkiezer raadde mij een job als ".$beroep." aan! Vind jouw knelpuntberoep op http://pieterreuse.be/tools/knelkiezer";
 		
 	mysql_close($con);
 	$request_url = "http://data.appsforflanders.be/sql.json?query=" ;
