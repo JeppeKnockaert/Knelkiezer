@@ -1,4 +1,4 @@
-<?php include_once('header.tpl'); ?>
+<?php require_once('header.tpl'); ?>
 
 <?php
 	require_once('curl.php');
@@ -15,7 +15,7 @@
 	$result = mysql_query($query) or die ("fout: " . mysql_error());
 	$beroepen = mysql_result($result,0);
 	
-	$maxscore=-2*$count;
+	$maxscore=-5*$count;
 	$maxid=1;
 	
 	for( $counter = 1; $counter < $beroepen -1; $counter++){
@@ -23,7 +23,8 @@
 		$score=0;
 		for( $counter2 = 1; $counter2 < $count -1; $counter2++){
 			
-			$antwoord = $_SESSION['antwoord'][""+$counter2];
+			$antwoord = $_SESSION['antwoord'][$counter2];
+			//echo $_SESSION['antwoord'][$counter2];
 			$antwoord = 2*$antwoord-1;
 			
 			$query="SELECT `beroep` FROM `beroepen` WHERE `id`='".$counter."';";
@@ -58,6 +59,7 @@
     $fullurl = $request_url.urlencode( $query . $where ) ;
     // get "opleidingen"
     $opleidingen = get( $fullurl )->sqlquery;
+	//$opleidingen = 0;
 ?>
 
 <!--<img src="http://www.pieterreuse.be/tools/knelkiezer/img/<?php //echo $maxid; ?>.jpg"/><br/><br/>-->

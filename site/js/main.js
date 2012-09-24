@@ -9,11 +9,11 @@ function sendData(trueorfalse,number,url){
 	console.log(url);
 	if(trueorfalse == 'yes'){
 		$(".antwoordHidden").val("1");
-		$.get(url+"/getvraag.php?vraag="+number+"&antwoord=1");
+		$.get(url+"getvraag.php?vraag="+number+"&antwoord=1");
 	}
 	else{
 		$(".antwoordHidden").val("0");
-		$.get(url+"/getvraag.php?vraag="+number+"&antwoord=0");
+		$.get(url+"getvraag.php?vraag="+number+"&antwoord=0");
 	}
 	$("#_"+number).css("z-index", ""+teller);
 	teller++;

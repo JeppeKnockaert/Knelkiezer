@@ -50,9 +50,10 @@
 		
 			$result = mysql_query($query) or die ("fout: " . mysql_error());
 			$count = mysql_result($result,0);
-			$url = preg_match('/(.*)\/.*/',$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"],$matches);
-			$url = $matches[1];
-			$url = preg_replace('/^localhost/','http://localhost',$url);
+			//$url = preg_match('/(.*)\/.*/',$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"],$matches);
+			//$url = $matches[1];
+			//$url = preg_replace('/^localhost/','http://localhost',$url);*/
+			$url = "http://www.pieterreuse.be/tools/knelkiezer/";
 			for( $counter = 1; $counter <= $count; $counter++){
 			
 				echo "<div id=_".$counter." class='question'>";
