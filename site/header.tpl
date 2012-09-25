@@ -1,6 +1,7 @@
 <?php
 	require_once( 'fb/facebook.php' );
     require_once( 'fb/config.php' );
+    require_once( 'config.php' );
 	try{
 	    $user = $facebook->getUser();
 	}
@@ -17,5 +18,5 @@
 		//Get the profile
         $user_profile = $facebook->api('/me'); 
 	}
-    session_start();
+	session_start();
 ?>

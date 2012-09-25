@@ -5,14 +5,15 @@ $(document).ready(function(){
 	$("#_1").show();
 });
 
-function sendData(trueorfalse,number){
+function sendData(trueorfalse,number,url){
+	console.log(url);
 	if(trueorfalse == 'yes'){
 		$(".antwoordHidden").val("1");
-		$.get("http://www.pieterreuse.be/tools/knelkiezer/getvraag.php?vraag="+number+"&antwoord=1");
+		$.get(url+"getvraag.php?vraag="+number+"&antwoord=1");
 	}
 	else{
 		$(".antwoordHidden").val("0");
-		$.get("http://www.pieterreuse.be/tools/knelkiezer/getvraag.php?vraag="+number+"&antwoord=0");
+		$.get(url+"getvraag.php?vraag="+number+"&antwoord=0");
 	}
 	$("#_"+number).css("z-index", ""+teller);
 	teller++;

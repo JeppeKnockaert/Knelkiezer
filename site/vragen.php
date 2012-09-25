@@ -1,3 +1,4 @@
+<?php include_once('header.tpl'); ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -20,7 +21,6 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.1.min.js"></script>
     </head>
-    <?php include_once('header.tpl'); ?>
     <?php 
 		if (! $user){
 			//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';
@@ -42,7 +42,7 @@
         <?php
 			
 			//haal aantal vragen op
-			$con = mysql_connect("localhost","pieter","moeilijkwachtwoord");
+			$con = mysql_connect($db['hostname'],$db['login'],$db['pass']);
 			if (!$con)	die('DBfout, fout: ' . mysql_error());
 			mysql_select_db("knelkiezer",$con);
 		
@@ -50,7 +50,10 @@
 		
 			$result = mysql_query($query) or die ("fout: " . mysql_error());
 			$count = mysql_result($result,0);
-			
+			//$url = preg_match('/(.*)\/.*/',$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"],$matches);
+			//$url = $matches[1];
+			//$url = preg_replace('/^localhost/','http://localhost',$url);*/
+			$url = "http://www.pieterreuse.be/tools/knelkiezer/";
 			for( $counter = 1; $counter <= $count; $counter++){
 			
 				echo "<div id=_".$counter." class='question'>";
@@ -63,9 +66,9 @@
                 echo '<input class="antwoordHidden" type="hidden" name="antwoord" value="1" />';
 			?>
             <div id="antwoord" class="clearfix">
-                            <div class="ja" onClick="sendData('yes', <?php echo $counter; ?>);">
+                            <div class="ja" onClick="sendData('yes', <?php echo $counter; ?>, '<?php echo $url; ?>');">
                             </div>
-                            <div class="nee" onClick="sendData('no',  <?php echo $counter; ?>);">
+                            <div class="nee" onClick="sendData('no',  <?php echo $counter; ?>, '<?php echo $url; ?>');">
                             </div>
                         </div>
 			</form>
