@@ -129,7 +129,7 @@ textarea {
 #result{
 	margin:0 auto;
 	text-align:center;
-	padding-top:200px;
+	padding-top:170px;
 }
 
 h1{
@@ -148,7 +148,7 @@ h1{
 }
 
 
-#home p, #result p{
+#home p, #result p, .shadow{
 	color:#FFF;
 	font-family:'prodinm';
 	font-size:17px;
@@ -191,6 +191,29 @@ h1{
 
 #share:hover{
 	background-position:0 -63px;
+}
+
+ul{
+	margin-top:20px;
+}
+
+li{
+	list-style-type:none;
+	color:#FFF;
+	margin-top:5px;
+	margin-bottom:10px;
+	line-height:0px;
+}
+
+.kaart{
+	display:inline-block;
+	width:20px;
+	height:25px;
+	margin-bottom:-5px;
+	background-image:url(assets/kaart.png);
+	background-position:0 5px;
+	background-repeat:no-repeat;
+	margin-left:15px;
 }
 
 #container_questions{
@@ -253,8 +276,13 @@ h1{
 	top:50px;
 }
 
+#map{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
 }
-
 
 
 
